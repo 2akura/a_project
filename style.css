@@ -1,36 +1,26 @@
-body {
-    font-family: 'Courier New', monospace;
-    background-color: black;
-    color: green;
-    margin: 0;
-    padding: 0;
+#terminal {
+  background-color: #000;
+  color: #0f0;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 20px;
+  height: 300px;
+  overflow-y: auto;
+  border: 2px solid #0f0;
 }
 
-#terminal-window {
-    width: 80%;
-    margin: 50px auto;
-    border: 2px solid green;
-    padding: 20px;
+#prompt {
+  display: flex;
+  align-items: center;
 }
 
-#terminal-header {
-    font-weight: bold;
-    font-size: 1.5em;
-    margin-bottom: 10px;
+#prompt span {
+  margin-right: 5px;
 }
 
-#output {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    min-height: 100px;
-}
-
-input {
-    width: 100%;
-    background: transparent;
-    border: none;
-    color: green;
-    font-size: 1.1em;
-    outline: none;
-    padding: 5px;
+#commandInput {
+  background: none;
+  border: none;
+  color: #0f0;
+  outline: none;
+  width: 100%;
 }
