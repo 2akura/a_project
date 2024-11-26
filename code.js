@@ -1,34 +1,30 @@
-const inputField = document.getElementById("input");
-const outputArea = document.getElementById("output");
+document.addEventListener('DOMContentLoaded', () => {
+  const outputDiv = document.getElementById('output');
+  const commandInput = document.getElementById('commandInput');
 
-const commands = {
-    "show project": `
-Project 1: <a href="https://your-project1-url.com" target="_blank">View Project</a>
-Project 2: <a href="https://your-project2-url.com" target="_blank">View Project</a>
-`,
-    "about me": `
-Hello, I am a Rust and JavaScript developer. I enjoy working on networking projects and building interactive web applications.
-`,
-    "contact": `
-Email: email@email.com
-Phone: 0123456789
-Twitter: @yourhandle
-LinkedIn: https://www.linkedin.com/in/yourprofile/
-`
-};
-
-inputField.addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-        const command = inputField.value.trim();
-        handleCommand(command);
-        inputField.value = ""; // Clear input field
-    }
-});
-
-function handleCommand(command) {
-    if (commands[command]) {
-        outputArea.innerHTML = commands[command];
+  // Function to process command
+  function processCommand(command) {
+    if (command === 'hi') {
+      return 'Hello, World!';
     } else {
-        outputArea.innerHTML = `Command not recognized. Type ? for help.`;
+      return `Unknown command: ${command}`;
     }
-}
+  }
+
+  // Event listener for input
+  commandInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const command = commandInput.value.trim();
+      if (command) {
+        // Display the command
+        outputDiv.innerHTML += `<div>#R1&gt; ${command}</div>`;
+        // Display the result
+        const result = processCommand(command);
+        outputDiv.innerHTML += `<div>${result}</div>`;
+        // Scroll to the bottom
+        outputDiv.scrollTop = outputDiv.scrollHeight;
+      }
+      commandInput.value = '';
+    }
+  });
+});
