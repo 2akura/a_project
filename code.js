@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Function to process command
   function processCommand(command) {
-    if (command === 'hi') {
+    if (command == 'hi') {
       return 'Hello, World!';
     } else {
       return `Unknown command: ${command}`;
